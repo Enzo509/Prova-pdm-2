@@ -17,7 +17,7 @@ nota: 10
 numeroChamada: 1221
     },
     {
-nome: "vone",
+nome: "Ivone",
 idade: 17,
 materias: [
 {
@@ -87,13 +87,14 @@ materias: [
 ]
 
 function mostrarNomeENota(alunos) {
-    for (let aluno of alunos) {z    
-    console.log(`${aluno.nome}: ${aluno.materias.map(materia => `${materia.nome} - Nota: ${materia.nota}`).join(', ')}`);
+    for (let aluno of alunos) 
+    {    
+    console.log(`${aluno.nome}: ${aluno.materias.map(materia => `${materia.nome} - Nota: ${materia.nota}`).join(', ')}\n`);
 }
 }
 
-function mostrarAprovados(alunos) {
-    return alunos.filter(aluno => aluno.materias.every(materia => materia.nota >= 6 && materia.presenca >= 75));
+function mostrarAprovados(materia) {
+    return materia.filter(aluno => aluno.materias.every(materia => materia.nota >= 6 && materia.presenca >= 75));
 }
 
 function mostrarReprovados(alunos) {
@@ -118,13 +119,10 @@ function mostrarMenoresNotas(alunos) {
 });
 
     return sortedAlunos.slice(0, 3);
+    
 }
 
-function mostrarPresenca(alunos) {
-    return alunos.filter(aluno => aluno.presenca.some(presenca => presenca.nota < 6 || presenca.presenca < 75));
-}
-
-console.log("Nomes e Notas:");
+console.log("NomeseNotas:");
 mostrarNomeENota(chamadaDeAlunos);
 
 console.log("\nAprovados:");
@@ -133,8 +131,8 @@ console.log(mostrarAprovados(chamadaDeAlunos));
 console.log("\nReprovados:");
 console.log(mostrarReprovados(chamadaDeAlunos));
 
-console.log("\nMaiores Notas:");
+console.log("\nMaioresNotas:");
 console.log(mostrarMaioresNotas(chamadaDeAlunos));
 
-console.log("\nMenores Notas:");
+console.log("\nMenoresNotas:");
 console.log(mostrarMenoresNotas(chamadaDeAlunos));
